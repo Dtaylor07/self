@@ -8,7 +8,7 @@ locals {
 
   oidc_sub_repositories = formatlist("repo:org/%s:environment:%s", local.github_repositories, upper(var.environment))
 
-  additional_permission = var.environment == "PROD" ? [format("repo:Dtaylor07/%s:environment:%s", local.github_repositories[1], "RELEASE")] : []
+  additional_permission = var.environment == "PROD" ? [format("repo:Dtaylor07/%s:environment:%s", local.github_repositories[0], "RELEASE")] : []
 }
 
 # create github oidc provider
