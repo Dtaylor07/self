@@ -6,7 +6,7 @@ locals {
     "self"
   ]
 
-  oidc_sub_repositories = formatlist("repo:org/%s:environment:%s", local.github_repositories, upper(var.environment))
+  oidc_sub_repositories = formatlist("Dtaylor07:org/%s:environment:%s", local.github_repositories, upper(var.environment))
 
   additional_permission = var.environment == "PROD" ? [format("repo:Dtaylor07/%s:environment:%s", local.github_repositories[0], "RELEASE")] : []
 }
