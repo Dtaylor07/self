@@ -3,7 +3,9 @@ data "aws_caller_identity" "current" {}
 locals {
   account_id = data.aws_caller_identity.current.account_id
   github_repositories = [
-    "self"
+    "self",
+"dhavalrepo",
+"nikitarepo"
   ]
 
   oidc_sub_repositories = formatlist("repo:Dtaylor07:org/%s:environment:%s", local.github_repositories, upper(var.environment))
