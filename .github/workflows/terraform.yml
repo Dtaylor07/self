@@ -39,18 +39,25 @@ jobs:
       with:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-    - name: configure aws credentials
+    - name: Set up AWS credentials
       uses: aws-actions/configure-aws-credentials@v2
       with:
-          role-to-assume: ${{ secrets.AWS_OIDC_ROLE_ARN }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.REGION }}
 
-    - name: Configure aws credential profile
-      run: |
-              aws configure set default.region us-east-1
-              aws configure set default.aws_access_key_id ${{ env.AWS_ACCESS_KEY_ID }}
-              aws configure set default.aws_secret_access_key ${{ env.AWS_SECRET_ACCESS_KEY }}
-              aws configure set aws_session_token ${{ env.AWS_SESSION_TOKEN }}
+    # - name: configure aws credentials
+    #   uses: aws-actions/configure-aws-credentials@v2
+    #   with:
+    #       role-to-assume: ${{ secrets.AWS_OIDC_ROLE_ARN }}
+    #       aws-region: ${{ env.REGION }}
+
+    # - name: Configure aws credential profile
+    #   run: |
+    #           aws configure set default.region us-east-1
+    #           aws configure set default.aws_access_key_id ${{ env.AWS_ACCESS_KEY_ID }}
+    #           aws configure set default.aws_secret_access_key ${{ env.AWS_SECRET_ACCESS_KEY }}
+    #           aws configure set aws_session_token ${{ env.AWS_SESSION_TOKEN }}
 
     - run: aws configure list-profiles    
 
