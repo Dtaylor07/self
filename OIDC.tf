@@ -34,7 +34,7 @@ data "aws_iam_policy_document" "github_deployment_oidc_assume_role_policy" {
     condition {
       test     = "ForAnyValue:StringLike"
       variable = "token.actions.githubusercontent.com:sub"
-      values   = concat(local.oidc_sub_repositories, additional_permission)
+      values   = concat(local.oidc_sub_repositories, local.additional_permission)
     }
 
     condition {
