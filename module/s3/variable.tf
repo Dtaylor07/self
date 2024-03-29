@@ -9,3 +9,13 @@ variable "tags" {
   default     = {}
 }
 
+variable "cidr_block" {
+  description = "The cidr_block"
+  type        = string
+}
+
+variable "name" {
+  description = "The name of the security_group"
+  type        = string
+}
+
