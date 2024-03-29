@@ -1,10 +1,21 @@
 // first vpc
 
-resource "aws_vpc" "main" {
-  cidr_block = "10.0.0.0/16"
+# resource "aws_vpc" "main" {
+#   cidr_block = "10.0.0.0/16"
 
+#   tags = {
+#     Name = "tf-main"
+#   }
+
+# }
+
+module "s3_bucket_module" {
+  source = "../module/s3"
+
+  bucket_name = "dhaval-test-module-terraform-bucket-to-delete"
   tags = {
-    Name = "tf-main"
+    Terraform   = "true"
+    Environment = "dev"
   }
 
 }
