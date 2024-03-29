@@ -3,7 +3,7 @@ output "website_bucket_arn" {
   value       = module.s3_bucket_module.arn
 }
 
-output "bucket_name" {
+output "bucket_id" {
   description = "Name of the bucket"
-  value       = module.s3_bucket_module.bucket
+  value       = module.s3_bucket_module.id
 }
