@@ -19,7 +19,4 @@ module "s3_bucket_module" {
   }
   cidr_block = "10.7.0.0"
   name       = "test-sg-tf-module"
-
-
-
 }
