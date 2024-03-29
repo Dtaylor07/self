@@ -17,6 +17,6 @@ module "s3_bucket_module" {
     Terraform   = "true"
     Environment = "dev"
   }
-  cidr_block = "10.7.0.0"
+  cidr_block = "10.7.0.0/16"
   name       = "test-sg-tf-module"
 }
