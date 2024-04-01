@@ -13,12 +13,7 @@ module "s3_bucket_module" {
   source = "././module/mix"
 
   bucket_name = "dhaval-test-module-terraform-bucket-to-delete"
-  files = {
-    terraform_managed     = false
-    www_path              = "././www"
-    Index_document_suffix = "././www/index.html"
-    Error_document_key    = "././www/error.html"
-  }
+
   tags = {
     terraform     = "true"
     environment   = "dev"
