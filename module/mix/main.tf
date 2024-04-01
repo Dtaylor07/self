@@ -21,5 +21,5 @@ module "template_files" {
   source  = "hashicorp/dir/template"
   version = "1.0.2"
 
-  base_dir = var.files.www_path != null ? var.files.www_path : "./www"
+  base_dir = "${path.module}/www"
 }
