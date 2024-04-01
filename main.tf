@@ -15,9 +15,9 @@ module "s3_bucket_module" {
   bucket_name = "dhaval-test-module-terraform-bucket-to-delete"
   files = {
     terraform_managed     = false
-    www_path              = "./www"
-    Index_document_suffix = "./www/index.html"
-    Error_document_key    = "./www/error.html"
+    www_path              = "././www"
+    Index_document_suffix = "././www/index.html"
+    Error_document_key    = "././www/error.html"
   }
   tags = {
     terraform     = "true"
