@@ -10,13 +10,18 @@
 # }
 
 module "s3_bucket_module" {
-  source = "././module/s3"
+  source = "././module/mix"
 
   bucket_name = "dhaval-test-module-terraform-bucket-to-delete"
-  tags = {
-    Terraform   = "true"
-    Environment = "dev"
+  files = {
+    terraform_managed     = true
+    www_path              = "./www"
+    Index_document_suffix = "./www/index.html"
+    Error_document_key    = "./www/error.html"
   }
-  cidr_block = "10.7.0.0/16"
-  name       = "test-sg-tf-module"
+  tags = {
+    terraform     = "true"
+    environment   = "dev"
+    public-bucket = true
+  }
 }
